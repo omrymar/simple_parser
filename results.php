@@ -8,7 +8,7 @@ function get_dice_results($dice_type, $count) {
   return $results;
 }
 
- function filter_wrapper($dice_type, $count, $evaluation, $min_value, $trigger) {
+ function filter_wrapper($dice_type, $count, $evaluation, $min_value ,$trigger) {
    $results = get_dice_results($dice_type, $count);
 
    switch($evaluation){
@@ -18,7 +18,7 @@ function get_dice_results($dice_type, $count) {
            unset($results[$i]);
          }
        }
-     break;
+       break;
      case ">":
        for($i=0; $i<$count; $i++){
          if ($results[$i] <= $min_value){
@@ -58,7 +58,7 @@ function get_dice_results($dice_type, $count) {
   }
  }
 
-function parser($instruction, $dice_type, $count) {
+function parser($instruction) {
   //$instruction = "throw 10 d20 filter >= 10 sort desc";
   if ($instruction != "") {
     $mass_input = explode(" ", $instruction);
@@ -89,7 +89,6 @@ function parser($instruction, $dice_type, $count) {
       throw new Exception("Error");
     }
     if (($mass_input[7] == "desc") || ($mass_input[7] == "asc")) {
-      //throw X dY filter [<;<=;>,>=, =] Z sort [asc;desc]
       $trigger = $mass_input[7];
     }
   } else {

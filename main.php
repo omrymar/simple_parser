@@ -14,7 +14,6 @@
         <label for="inp-facet">Введите Ваш запрос</label>
         <input id="inp-facet" type="text" name="instruction" class="form-control">
       </div>
-
       <div class="btn_center">
         <input type="submit" value="Отправить запрос" class="btn btn-danger">
       </div>

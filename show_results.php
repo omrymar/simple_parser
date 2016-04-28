@@ -9,8 +9,8 @@
 <body>
 <div class="center">
   <div class="content">
-    <?php $results = parser($_POST['instruction'],$_POST['dice_type'], $_POST['count'])?>
 
+    <?php $results = parser($options['instruction'])?>
     <?php foreach ($results as $result): ?>
       <div class="dice-<?php echo $result; ?> dices"></div><br/>
     <?php endforeach; ?>
@@ -22,5 +22,9 @@
     </form>
   </div>
 </div>
+<?php
+unset($_POST['options']);
+?>
 </body>
 </html>
+
